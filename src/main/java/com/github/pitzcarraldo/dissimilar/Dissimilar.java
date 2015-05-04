@@ -14,7 +14,7 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-package uk.bl.dpt.qa;
+package com.github.pitzcarraldo.dissimilar;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -49,7 +49,7 @@ import org.apache.commons.math3.stat.descriptive.moment.Variance;
  * Program/library to calculate SSIM and PSNR values between two images  
  * @author wpalmer
  */
-public class DissimilarV2 {
+public class Dissimilar {
 
 	/**
 	 * Default SSIM window size (8)
@@ -570,7 +570,7 @@ public class DissimilarV2 {
 	
 		Properties mavenProps = new Properties();
 		try {
-			mavenProps.load(DissimilarV2.class.getClassLoader().getResourceAsStream("META-INF/maven/uk.bl.dpt.qa/dissimilar/pom.properties"));
+			mavenProps.load(Dissimilar.class.getClassLoader().getResourceAsStream("META-INF/maven/uk.bl.dpt.dissimilar/dissimilar/pom.properties"));
 			version = mavenProps.getProperty("version");
 		} catch (Exception e) {
 		}

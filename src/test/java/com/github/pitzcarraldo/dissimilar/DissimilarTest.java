@@ -14,7 +14,7 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-package dissimilar;
+package com.github.pitzcarraldo.dissimilar;
 
 import static org.junit.Assert.*;
 
@@ -22,7 +22,7 @@ import java.io.File;
 
 import org.junit.Test;
 
-import uk.bl.dpt.qa.DissimilarV2;
+import com.github.pitzcarraldo.dissimilar.Dissimilar;
 
 /**
  * Test cases for DissimilarV2
@@ -47,7 +47,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-bw.png.bmp");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw.jpg.bmp");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -65,7 +65,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-bw.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw-dot.png");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -83,7 +83,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-bw.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw-line.png");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -104,7 +104,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png.bmp");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour.jpg.bmp");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -122,7 +122,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour-reddot.png");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -140,7 +140,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour-reddot2.png");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -158,7 +158,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour-redline.png");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -176,7 +176,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour.png");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -194,7 +194,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-bw.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw.png");
 		
-		final double psnr = DissimilarV2.calcPSNR(testmaster, testcopy);
+		final double psnr = Dissimilar.calcPSNR(testmaster, testcopy);
 		if(Math.abs(psnr-imagemagickPSNR)>0.0001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated PSNR: "+psnr);
@@ -217,7 +217,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-bw.png.bmp");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw.jpg.bmp");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -237,7 +237,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-bw.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw-dot.png");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -257,7 +257,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-bw.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw-line.png");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -277,7 +277,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png.bmp");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour.jpg.bmp");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -297,7 +297,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour-reddot.png");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -317,7 +317,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour-reddot2.png");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -337,7 +337,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour-redline.png");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -357,7 +357,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-colour.png");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -377,7 +377,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-bw.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw.png");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);
@@ -397,7 +397,7 @@ public class DissimilarTest {
 		final File testmaster = new File(TESTFILEDIR+"test1-colour.png");
 		final File testcopy = new File(TESTFILEDIR+"test1-bw.png");
 		
-		final double ssim = DissimilarV2.calcSSIM(testmaster, testcopy);
+		final double ssim = Dissimilar.calcSSIM(testmaster, testcopy);
 		if(Math.abs(ssim-knownSSIM)>0.000001) {
 			System.out.println("Failure for test file: "+testcopy.getName());
 			System.out.println("Calculated SSIM: "+ssim);

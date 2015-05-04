@@ -1,0 +1,91 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+group = 'com.github.pitzcarraldo'
+archivesBaseName = "dissimilar"
+version = '0.5-SNAPSHOT'
+
+description = """dissimilar"""
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+repositories {
+        
+     maven { url "http://www.mygrid.org.uk/maven/repository" }
+     maven { url "https://repository.apache.org/snapshots/" }
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compile group: 'org.apache.commons', name: 'commons-math3', version:'3.2'
+    compile group: 'commons-cli', name: 'commons-cli', version:'1.2'
+    compile group: 'org.apache.commons', name: 'commons-imaging', version:'1.0-SNAPSHOT'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version:'2.0-beta8'
+    compile group: 'net.java.dev.jai-imageio', name: 'jai-imageio-core-standalone', version:'1.2-pre-dr-b04-2013-04-23'
+    testCompile group: 'junit', name: 'junit', version:'4.10'
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'dissimilar'
+                packaging 'jar'
+                url 'https://github.com/Pitzcarraldo/dissimilar'
+
+                scm {
+                    connection 'scm:git:git@github.com:Pitzcarraldo/dissimilar.git'
+                    developerConnection 'scm:git:git@github.com:Pitzcarraldo/dissimilar.git'
+                    url 'git@github.com:Pitzcarraldo/dissimilar.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'mrnoname'
+                        name 'Minkyu Cho'
+                        email 'mrnoname@naver.com'
+                    }
+                }
+            }
+        }
+    }
+}
